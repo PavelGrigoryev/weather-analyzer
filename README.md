@@ -1,7 +1,8 @@
 # Weather Analyzer application
 
 The application receives information about the weather in Minsk from WeatherAPI(https://www.weatherapi.com),
-according to a schedule, and saves it in the database
+according to a schedule, and saves it in the database. Also finds information about the current weather and average
+temperature over a period of time
 
 ## Author: [Grigoryev Pavel](https://pavelgrigoryev.github.io/GrigoryevPavel/)
 
@@ -67,7 +68,7 @@ In summary the application can:
   }
   ````
 
-* **POST findAverageTemperature |  Finds the average temperature over a period of time**
+* **POST findAverageTemperature | Finds the average temperature over a period of time**
     * http://localhost:8080/weather
     * Accepts JSON body with time period from -> to
     * Request example:
