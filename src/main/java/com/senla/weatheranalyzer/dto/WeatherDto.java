@@ -3,8 +3,6 @@ package com.senla.weatheranalyzer.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import java.math.BigDecimal;
-
 @JsonPropertyOrder({
         "temperature",
         "wind_speed",
@@ -14,10 +12,10 @@ import java.math.BigDecimal;
         "location"
 })
 public record WeatherDto(
-        BigDecimal temperature,
+        Double temperature,
         @JsonProperty("wind_speed")
-        BigDecimal windSpeed,
-        BigDecimal pressure,
+        Double windSpeed,
+        Double pressure,
         Integer humidity,
         String condition,
         String location

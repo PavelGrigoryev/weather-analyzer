@@ -11,8 +11,6 @@ import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
-import java.math.BigDecimal;
-
 @Service
 @RequiredArgsConstructor
 public class WeatherServiceImpl implements WeatherService {
@@ -33,17 +31,15 @@ public class WeatherServiceImpl implements WeatherService {
     }
 
     /**
-     * Method for finding the average temperature for a specified period of time.
+     * Method for finding the average weather for a specified period of time.
      *
      * @param request an AVGTempRequest object containing the start and end dates of the period.
-     * @return Mono with an AVGTempResponse object containing the average temperature for the specified period.
+     * @return Mono with an AVGTempResponse object containing the average weather for the specified period.
      */
     @Override
-    public Mono<AVGTempResponse> findAverageTemperature(AVGTempRequest request) {
-        return weatherRepository.findAverageTemperature(request.from(), request.to())
-                .map(bigDecimal -> new BigDecimal(bigDecimal.stripTrailingZeros().toPlainString()))
-                .map(AVGTempResponse::new)
-                .log("WeatherService findAverageTemperature");
+    public Mono<AVGTempResponse> findAverageWeather(AVGTempRequest request) {
+        return weatherRepository.findAverageWeather(request.from(), request.to())
+                .log("WeatherService findAverageWeather");
     }
 
 }

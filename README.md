@@ -2,7 +2,7 @@
 
 The application receives information about the weather in Minsk from WeatherAPI(https://www.weatherapi.com),
 according to a schedule, and saves it in the database. Also finds information about the current weather and average
-temperature over a period of time
+weather over a period of time
 
 ## Author: [Grigoryev Pavel](https://pavelgrigoryev.github.io/GrigoryevPavel/)
 
@@ -68,7 +68,7 @@ In summary the application can:
   }
   ````
 
-* **POST findAverageTemperature | Finds the average temperature over a period of time**
+* **POST findAverageTemperature | Finds the average weather over a period of time**
     * http://localhost:8080/weather
     * Accepts JSON body with time period from -> to
     * Request example:
@@ -78,10 +78,14 @@ In summary the application can:
     "to":"2023-03-20"
   }
   ````
-    * Returns average temperature over a period of time in JSON format
+    * Returns average weather over a period of time in JSON format
     * Response example:
   ````
   {
-    "average_temp": 5
+    "average_temp": 4.0,
+    "average_wind_speed": 3.04,
+    "average_pressure": 1019.0,
+    "average_humidity": 75.0,
+    "location": "Minsk"
   }
   ````

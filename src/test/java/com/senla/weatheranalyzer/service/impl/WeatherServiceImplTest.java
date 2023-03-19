@@ -55,16 +55,16 @@ class WeatherServiceImplTest {
     }
 
     @Test
-    @DisplayName("check findAverageTemperature method should return expected value")
-    void checkFindAverageTemperatureShouldReturnExpectedValue() {
+    @DisplayName("check findAverageWeather method should return expected value")
+    void checkFindAverageWeatherShouldReturnExpectedValue() {
         AVGTempRequest request = AVGTempRequestTestBuilder.aAVGTempRequest().build();
         AVGTempResponse response = AVGTempResponseTestBuilder.aAVGTempResponse().build();
 
-        doReturn(Mono.just(response.averageTemp()))
+        doReturn(Mono.just(response))
                 .when(weatherRepository)
-                .findAverageTemperature(request.from(), request.to());
+                .findAverageWeather(request.from(), request.to());
 
-        Mono<AVGTempResponse> result = weatherService.findAverageTemperature(request);
+        Mono<AVGTempResponse> result = weatherService.findAverageWeather(request);
 
         StepVerifier.create(result)
                 .expectNext(response)

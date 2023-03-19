@@ -24,8 +24,8 @@ public class WeatherController {
     }
 
     @PostMapping
-    public Mono<ResponseEntity<AVGTempResponse>> findAverageTemperature(@RequestBody AVGTempRequest request) {
-        return weatherService.findAverageTemperature(request)
+    public Mono<ResponseEntity<AVGTempResponse>> findAverageWeather(@RequestBody AVGTempRequest request) {
+        return weatherService.findAverageWeather(request)
                 .map(ResponseEntity::ok)
                 .defaultIfEmpty(ResponseEntity.notFound().build());
     }

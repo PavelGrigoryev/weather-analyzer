@@ -69,7 +69,7 @@ class WeatherControllerTest {
 
         doReturn(Mono.just(response))
                 .when(weatherService)
-                .findAverageTemperature(request);
+                .findAverageWeather(request);
 
         webTestClient.post()
                 .uri("/weather")
@@ -89,7 +89,7 @@ class WeatherControllerTest {
 
         doReturn(Mono.empty())
                 .when(weatherService)
-                .findAverageTemperature(request);
+                .findAverageWeather(request);
 
         webTestClient.post()
                 .uri("/weather")

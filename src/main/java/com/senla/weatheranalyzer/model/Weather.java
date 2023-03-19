@@ -8,7 +8,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -22,12 +21,12 @@ public class Weather {
     @Id
     private Long id;
 
-    private BigDecimal temperature;
+    private Double temperature;
 
     @Column("wind_speed")
-    private BigDecimal windSpeed;
+    private Double windSpeed;
 
-    private BigDecimal pressure;
+    private Double pressure;
 
     private Integer humidity;
 

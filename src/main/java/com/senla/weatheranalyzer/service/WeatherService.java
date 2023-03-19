@@ -9,6 +9,6 @@ public interface WeatherService {
 
     Mono<WeatherDto> findCurrentWeather();
 
-    Mono<AVGTempResponse> findAverageTemperature(AVGTempRequest request);
+    Mono<AVGTempResponse> findAverageWeather(AVGTempRequest request);
 
 }

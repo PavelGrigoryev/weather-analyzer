@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -73,9 +72,9 @@ public class WeatherScheduler {
         String condition = jsonNode.at("/current/condition/text").asText();
         String location = jsonNode.at("/location/name").asText();
         return Weather.builder()
-                .temperature(new BigDecimal(temperature))
-                .windSpeed(new BigDecimal(windSpeed))
-                .pressure(new BigDecimal(pressure))
+                .temperature(Double.valueOf(temperature))
+                .windSpeed(Double.valueOf(windSpeed))
+                .pressure(Double.valueOf(pressure))
                 .humidity(Integer.valueOf(humidity))
                 .condition(condition)
                 .location(location)

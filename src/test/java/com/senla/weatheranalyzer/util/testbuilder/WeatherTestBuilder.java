@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.With;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -16,9 +15,9 @@ import java.time.LocalTime;
 public class WeatherTestBuilder implements TestBuilder<Weather> {
 
     private Long id = 1L;
-    private BigDecimal temperature = BigDecimal.TEN;
-    private BigDecimal windSpeed = BigDecimal.ONE;
-    private BigDecimal pressure = BigDecimal.valueOf(1232.23);
+    private Double temperature = 10.0;
+    private Double windSpeed = 1.0;
+    private Double pressure = 1232.23;
     private Integer humidity = 36;
     private String condition = "Warm";
     private String location = "Minsk";
