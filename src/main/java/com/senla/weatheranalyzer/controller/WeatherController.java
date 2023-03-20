@@ -1,7 +1,7 @@
 package com.senla.weatheranalyzer.controller;
 
-import com.senla.weatheranalyzer.dto.AVGTempRequest;
-import com.senla.weatheranalyzer.dto.AVGTempResponse;
+import com.senla.weatheranalyzer.dto.AVGRequest;
+import com.senla.weatheranalyzer.dto.AVGResponse;
 import com.senla.weatheranalyzer.dto.WeatherDto;
 import com.senla.weatheranalyzer.service.WeatherService;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ public class WeatherController {
     }
 
     @PostMapping
-    public Mono<ResponseEntity<AVGTempResponse>> findAverageWeather(@RequestBody AVGTempRequest request) {
+    public Mono<ResponseEntity<AVGResponse>> findAverageWeather(@RequestBody AVGRequest request) {
         return weatherService.findAverageWeather(request)
                 .map(ResponseEntity::ok)
                 .defaultIfEmpty(ResponseEntity.notFound().build());

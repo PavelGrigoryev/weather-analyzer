@@ -1,6 +1,6 @@
 package com.senla.weatheranalyzer.repository;
 
-import com.senla.weatheranalyzer.dto.AVGTempResponse;
+import com.senla.weatheranalyzer.dto.AVGResponse;
 import com.senla.weatheranalyzer.model.Weather;
 import org.springframework.data.r2dbc.repository.Query;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
@@ -30,6 +30,6 @@ public interface WeatherRepository extends ReactiveCrudRepository<Weather, Long>
             WHERE date >= $1 AND date <= $2
             GROUP BY location
             """)
-    Mono<AVGTempResponse> findAverageWeather(LocalDate from, LocalDate to);
+    Mono<AVGResponse> findAverageWeather(LocalDate from, LocalDate to);
 
 }

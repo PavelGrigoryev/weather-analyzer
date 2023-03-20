@@ -68,7 +68,7 @@ In summary the application can:
   }
   ````
 
-* **POST findAverageTemperature | Finds the average weather over a period of time**
+* **POST findAverageWeather | Finds the average weather over a period of time**
     * http://localhost:8080/weather
     * Accepts JSON body with time period from -> to
     * Request example:

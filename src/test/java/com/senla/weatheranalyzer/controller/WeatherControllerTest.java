@@ -1,12 +1,12 @@
 package com.senla.weatheranalyzer.controller;
 
-import com.senla.weatheranalyzer.dto.AVGTempRequest;
-import com.senla.weatheranalyzer.dto.AVGTempResponse;
+import com.senla.weatheranalyzer.dto.AVGRequest;
+import com.senla.weatheranalyzer.dto.AVGResponse;
 import com.senla.weatheranalyzer.dto.WeatherDto;
 import com.senla.weatheranalyzer.mapper.WeatherMapper;
 import com.senla.weatheranalyzer.service.WeatherService;
-import com.senla.weatheranalyzer.util.testbuilder.AVGTempRequestTestBuilder;
-import com.senla.weatheranalyzer.util.testbuilder.AVGTempResponseTestBuilder;
+import com.senla.weatheranalyzer.util.testbuilder.AVGRequestTestBuilder;
+import com.senla.weatheranalyzer.util.testbuilder.AVGResponseTestBuilder;
 import com.senla.weatheranalyzer.util.testbuilder.WeatherTestBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -64,8 +64,8 @@ class WeatherControllerTest {
     @Test
     @DisplayName("check POST endpoint should return status Ok and expected body")
     void checkPostEndpointShouldReturnStatusOkAndExpectedBody() {
-        AVGTempRequest request = AVGTempRequestTestBuilder.aAVGTempRequest().build();
-        AVGTempResponse response = AVGTempResponseTestBuilder.aAVGTempResponse().build();
+        AVGRequest request = AVGRequestTestBuilder.aAVGTempRequest().build();
+        AVGResponse response = AVGResponseTestBuilder.aAVGTempResponse().build();
 
         doReturn(Mono.just(response))
                 .when(weatherService)
@@ -78,14 +78,14 @@ class WeatherControllerTest {
                 .exchange()
                 .expectStatus()
                 .isOk()
-                .expectBody(AVGTempResponse.class)
+                .expectBody(AVGResponse.class)
                 .isEqualTo(response);
     }
 
     @Test
     @DisplayName("check POST endpoint should return status Not Found")
     void checkPostEndpointShouldReturnStatusNotFound() {
-        AVGTempRequest request = AVGTempRequestTestBuilder.aAVGTempRequest().build();
+        AVGRequest request = AVGRequestTestBuilder.aAVGTempRequest().build();
 
         doReturn(Mono.empty())
                 .when(weatherService)

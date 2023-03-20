@@ -1,6 +1,6 @@
 package com.senla.weatheranalyzer.util.testbuilder;
 
-import com.senla.weatheranalyzer.dto.AVGTempResponse;
+import com.senla.weatheranalyzer.dto.AVGResponse;
 import com.senla.weatheranalyzer.util.TestBuilder;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -9,7 +9,7 @@ import lombok.With;
 @AllArgsConstructor
 @NoArgsConstructor(staticName = "aAVGTempResponse")
 @With
-public class AVGTempResponseTestBuilder implements TestBuilder<AVGTempResponse> {
+public class AVGResponseTestBuilder implements TestBuilder<AVGResponse> {
 
     private Double averageTemp = 10.0;
     private Double averageWindSpeed = 8.2;
@@ -18,8 +18,8 @@ public class AVGTempResponseTestBuilder implements TestBuilder<AVGTempResponse> 
     private String location = "Minsk";
 
     @Override
-    public AVGTempResponse build() {
-        return new AVGTempResponse(
+    public AVGResponse build() {
+        return new AVGResponse(
                 averageTemp,
                 averageWindSpeed,
                 averagePressure,

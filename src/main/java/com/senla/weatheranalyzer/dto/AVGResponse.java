@@ -2,7 +2,7 @@ package com.senla.weatheranalyzer.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public record AVGTempResponse(
+public record AVGResponse(
         @JsonProperty("average_temp")
         Double averageTemp,
         @JsonProperty("average_wind_speed")

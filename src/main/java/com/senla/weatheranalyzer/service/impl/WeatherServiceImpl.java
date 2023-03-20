@@ -1,7 +1,7 @@
 package com.senla.weatheranalyzer.service.impl;
 
-import com.senla.weatheranalyzer.dto.AVGTempRequest;
-import com.senla.weatheranalyzer.dto.AVGTempResponse;
+import com.senla.weatheranalyzer.dto.AVGRequest;
+import com.senla.weatheranalyzer.dto.AVGResponse;
 import com.senla.weatheranalyzer.dto.WeatherDto;
 import com.senla.weatheranalyzer.mapper.WeatherMapper;
 import com.senla.weatheranalyzer.repository.WeatherRepository;
@@ -33,11 +33,11 @@ public class WeatherServiceImpl implements WeatherService {
     /**
      * Method for finding the average weather for a specified period of time.
      *
-     * @param request an AVGTempRequest object containing the start and end dates of the period.
-     * @return Mono with an AVGTempResponse object containing the average weather for the specified period.
+     * @param request an AVGRequest object containing the start and end dates of the period.
+     * @return Mono with an AVGResponse object containing the average weather for the specified period.
      */
     @Override
-    public Mono<AVGTempResponse> findAverageWeather(AVGTempRequest request) {
+    public Mono<AVGResponse> findAverageWeather(AVGRequest request) {
         return weatherRepository.findAverageWeather(request.from(), request.to())
                 .log("WeatherService findAverageWeather");
     }

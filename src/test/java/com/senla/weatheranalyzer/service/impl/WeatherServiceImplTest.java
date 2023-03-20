@@ -1,14 +1,14 @@
 package com.senla.weatheranalyzer.service.impl;
 
-import com.senla.weatheranalyzer.dto.AVGTempRequest;
-import com.senla.weatheranalyzer.dto.AVGTempResponse;
+import com.senla.weatheranalyzer.dto.AVGRequest;
+import com.senla.weatheranalyzer.dto.AVGResponse;
 import com.senla.weatheranalyzer.dto.WeatherDto;
 import com.senla.weatheranalyzer.mapper.WeatherMapper;
 import com.senla.weatheranalyzer.model.Weather;
 import com.senla.weatheranalyzer.repository.WeatherRepository;
 import com.senla.weatheranalyzer.service.WeatherService;
-import com.senla.weatheranalyzer.util.testbuilder.AVGTempRequestTestBuilder;
-import com.senla.weatheranalyzer.util.testbuilder.AVGTempResponseTestBuilder;
+import com.senla.weatheranalyzer.util.testbuilder.AVGRequestTestBuilder;
+import com.senla.weatheranalyzer.util.testbuilder.AVGResponseTestBuilder;
 import com.senla.weatheranalyzer.util.testbuilder.WeatherTestBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -57,14 +57,14 @@ class WeatherServiceImplTest {
     @Test
     @DisplayName("check findAverageWeather method should return expected value")
     void checkFindAverageWeatherShouldReturnExpectedValue() {
-        AVGTempRequest request = AVGTempRequestTestBuilder.aAVGTempRequest().build();
-        AVGTempResponse response = AVGTempResponseTestBuilder.aAVGTempResponse().build();
+        AVGRequest request = AVGRequestTestBuilder.aAVGTempRequest().build();
+        AVGResponse response = AVGResponseTestBuilder.aAVGTempResponse().build();
 
         doReturn(Mono.just(response))
                 .when(weatherRepository)
                 .findAverageWeather(request.from(), request.to());
 
-        Mono<AVGTempResponse> result = weatherService.findAverageWeather(request);
+        Mono<AVGResponse> result = weatherService.findAverageWeather(request);
 
         StepVerifier.create(result)
                 .expectNext(response)
