@@ -29,9 +29,8 @@ weather over a period of time
    WeatherAPI(https://www.weatherapi.com), if not, register and get your api key
 4. The application will automatically connect to the weather api according to the schedule and will save the received
    data to the database every 10 minutes
-5. If you want to change schedule rate, go to
-   [WeatherScheduler.java](src/main/java/com/senla/weatheranalyzer/job/WeatherScheduler.java) and change it in line №31.
-   Rate is set in milliseconds
+5. If you want to change schedule rate, go to [application.properties](src/main/resources/application.properties) and
+   change it in line №17. Rate is set in milliseconds
 6. Run [WeatherAnalyzerApplication.java](src/main/java/com/senla/weatheranalyzer/WeatherAnalyzerApplication.java).
    Liquibase will create the required tables. Script to create database
    schema located: [create-tables.yaml](src/main/resources/db/changelog/create-tables.yaml)

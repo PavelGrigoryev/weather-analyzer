@@ -25,15 +25,10 @@ public class WeatherScheduler {
     private final WeatherRepository weatherRepository;
 
     /**
-     * Interval between weather data updates in milliseconds
-     */
-    private static final int WEATHER_UPDATE_RATE = 600000;
-
-    /**
      * Method for tracking weather data using an API.
      * Called at fixed time using the @Scheduled annotation.
      */
-    @Scheduled(fixedRate = WEATHER_UPDATE_RATE)
+    @Scheduled(fixedRateString = "${weather.update.rate}")
     private void trackWeather() {
         webClient.get()
                 .accept(MediaType.APPLICATION_JSON)
