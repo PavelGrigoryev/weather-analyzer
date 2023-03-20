@@ -6,15 +6,13 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.With;
 
-import java.time.LocalDate;
-
 @AllArgsConstructor
 @NoArgsConstructor(staticName = "aAVGTempRequest")
 @With
 public class AVGRequestTestBuilder implements TestBuilder<AVGRequest> {
 
-    private LocalDate from = LocalDate.now();
-    private LocalDate to = LocalDate.now();
+    private String from = "2023-03-18";
+    private String to = "2023-03-20";
 
     @Override
     public AVGRequest build() {

@@ -11,6 +11,9 @@ import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 @Service
 @RequiredArgsConstructor
 public class WeatherServiceImpl implements WeatherService {
@@ -38,7 +41,11 @@ public class WeatherServiceImpl implements WeatherService {
      */
     @Override
     public Mono<AVGResponse> findAverageWeather(AVGRequest request) {
-        return weatherRepository.findAverageWeather(request.from(), request.to())
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return weatherRepository.findAverageWeather(
+                        LocalDate.parse(request.from(), formatter),
+                        LocalDate.parse(request.to(), formatter)
+                )
                 .log("WeatherService findAverageWeather");
     }
 

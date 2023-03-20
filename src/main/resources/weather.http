@@ -8,5 +8,5 @@ Content-Type: application/json
 
 {
   "from": "2023-03-18",
-  "to":"2023-03-20"
+  "to": "2023-03-20"
 }

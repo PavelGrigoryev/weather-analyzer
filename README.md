@@ -13,6 +13,7 @@ weather over a period of time
 * Spring-boot 3.0.4
 * Spring-boot-starter-data-r2dbc
 * Spring-boot-starter-webflux (Netty)
+* Spring-boot-starter-validation
 * Spring-boot-starter-test
 * Reactor-test
 * Lombok 1.18.22
@@ -74,7 +75,7 @@ In summary the application can:
   ````
   {
     "from": "2023-03-18",
-    "to":"2023-03-20"
+    "to": "2023-03-20"
   }
   ````
     * Returns average weather over a period of time in JSON format
@@ -87,4 +88,11 @@ In summary the application can:
     "average_humidity": 75.0,
     "location": "Minsk"
   }
+  ````
+    * Bad Request example:
+  ````
+  [
+    "The date 'to' must be in the format yyyy-MM-dd",
+    "The date 'from' must be in the format yyyy-MM-dd"
+  ]
   ````

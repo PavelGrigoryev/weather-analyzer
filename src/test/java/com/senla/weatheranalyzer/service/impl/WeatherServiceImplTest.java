@@ -21,6 +21,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import static org.mockito.Mockito.doReturn;
 
 @ExtendWith(MockitoExtension.class)
@@ -59,10 +62,14 @@ class WeatherServiceImplTest {
     void checkFindAverageWeatherShouldReturnExpectedValue() {
         AVGRequest request = AVGRequestTestBuilder.aAVGTempRequest().build();
         AVGResponse response = AVGResponseTestBuilder.aAVGTempResponse().build();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         doReturn(Mono.just(response))
                 .when(weatherRepository)
-                .findAverageWeather(request.from(), request.to());
+                .findAverageWeather(
+                        LocalDate.parse(request.from(), formatter),
+                        LocalDate.parse(request.to(), formatter)
+                );
 
         Mono<AVGResponse> result = weatherService.findAverageWeather(request);
 
